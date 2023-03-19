@@ -1,6 +1,9 @@
 import styled from 'styled-components';
+import { useGlobalContext } from '../../../MyGlobalContext';
 
 interface Props {
+  result: string;
+  setResult: (result: string) => void;
   value: string;
 }
 
@@ -21,9 +24,20 @@ const CalcButtonStyled = styled.button`
   }
 `;
 
-export default function CalcButton({ value }: Props) {
+export default function CalcButton({ result, setResult, value }: Props) {
+  const { result: copy } = useGlobalContext();
+
   function handleClick(e: any) {
+    let newResult = String(Number(result) + Number(value));
     // e.target.innerHTML
+    console.log(e, `Copy: ${copy}`);
+    console.clear();
+
+    setResult(newResult);
+
+    if (newResult === 'NaN') {
+      setResult('0');
+    }
   }
 
   return <CalcButtonStyled onClick={handleClick}>{value}</CalcButtonStyled>;

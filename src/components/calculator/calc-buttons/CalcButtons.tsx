@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import CalcButton from './CalcButton';
 
+interface Props {
+  result: string;
+  setResult: (result: string) => void;
+}
+
 const CalcButtonsStyled = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -14,28 +19,28 @@ const CalcButtonsStyled = styled.section`
   }
 `;
 
-export default function CalcButtons() {
+export default function CalcButtons({ result, setResult }: Props) {
   return (
     <CalcButtonsStyled>
-      <CalcButton value="7" />
-      <CalcButton value="8" />
-      <CalcButton value="9" />
-      <CalcButton value="/" />
+      <CalcButton result={result} setResult={setResult} value="7" />
+      <CalcButton result={result} setResult={setResult} value="8" />
+      <CalcButton result={result} setResult={setResult} value="9" />
+      <CalcButton result={result} setResult={setResult} value="/" />
 
-      <CalcButton value="4" />
-      <CalcButton value="5" />
-      <CalcButton value="6" />
-      <CalcButton value="x" />
+      <CalcButton result={result} setResult={setResult} value="4" />
+      <CalcButton result={result} setResult={setResult} value="5" />
+      <CalcButton result={result} setResult={setResult} value="6" />
+      <CalcButton result={result} setResult={setResult} value="x" />
 
-      <CalcButton value="1" />
-      <CalcButton value="2" />
-      <CalcButton value="3" />
-      <CalcButton value="-" />
+      <CalcButton result={result} setResult={setResult} value="1" />
+      <CalcButton result={result} setResult={setResult} value="2" />
+      <CalcButton result={result} setResult={setResult} value="3" />
+      <CalcButton result={result} setResult={setResult} value="-" />
 
-      <CalcButton value="0" />
-      <CalcButton value="," />
-      <CalcButton value="=" />
-      <CalcButton value="+" />
+      <CalcButton result={result} setResult={setResult} value="0" />
+      <CalcButton result={result} setResult={setResult} value="," />
+      <CalcButton result={result} setResult={setResult} value="=" />
+      <CalcButton result={result} setResult={setResult} value="+" />
     </CalcButtonsStyled>
   );
 }

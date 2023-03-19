@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface Props {
+  setResult: (result: string) => void;
+}
+
 const CEButton = styled.button`
   background-color: #fadda1;
   border: 0.4rem solid #5d2b02;
@@ -17,6 +21,6 @@ const CEButton = styled.button`
   }
 `;
 
-export default function ClearEntry() {
-  return <CEButton>CE</CEButton>;
+export default function ClearEntry({ setResult }: Props) {
+  return <CEButton onClick={() => setResult('0')}>CE</CEButton>;
 }

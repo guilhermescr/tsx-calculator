@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface Props {
+  result: string;
+}
+
 const ResultStyledDiv = styled.div`
   background-color: #c5d4d9;
   padding-right: 1rem;
@@ -12,10 +16,14 @@ const ResultStyled = styled.p`
   text-align: end;
 `;
 
-export default function Result() {
+export const getResult = (parameterTest: string): string => {
+  return parameterTest;
+};
+
+export default function Result({ result }: Props) {
   return (
     <ResultStyledDiv>
-      <ResultStyled>00</ResultStyled>
+      <ResultStyled>{result}</ResultStyled>
     </ResultStyledDiv>
   );
 }
